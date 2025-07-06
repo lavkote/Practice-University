@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GameTime</title>
+    <title>Регистрация</title>
     <link rel="shortcut icon" href="/Images/Vector.png" type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -25,7 +25,27 @@
         ><a class="btn" href="#">Регистрация</a>
       </div>
     </header>
-    <main></main>
+    <main id="registrform">
+      <h1>Форма регистрации</h1>
+      <input
+        type="text"
+        class="registr"
+        id="AccountName"
+        placeholder="Введите имя аккаунта"
+      /><input
+        type="email"
+        class="registr"
+        id="Email"
+        placeholder="Введите электронную почту"
+        autocomplete="off"
+      /><input
+        type="password"
+        class="registr"
+        id="Password"
+        placeholder="Введите пароль"
+      />
+      <button type="submit" class="registr">Зарегистрироваться</button>
+    </main>
     <footer>
       <a class="mainpage" href="main.html">Вернуться на главную</a>
       <span>Весь контент был взят из открытых источников</span>
