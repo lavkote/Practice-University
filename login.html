@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Написать отзыв</title>
+    <title>Регистрация</title>
     <link rel="shortcut icon" href="/Images/Vector.png" type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -21,29 +21,24 @@
         <p id="reviews">отзывов: <span>1</span></p>
       </div>
       <div class="right">
-        <a class="btn" href="#">Написать отзыв</a
-        ><a class="btn" href="regist.html">Регистрация</a>
+        <a class="btn" href="review.html" target="_blank">Написать отзыв</a
+        ><a class="btn" href="">Регистрация</a>
       </div>
     </header>
-    <main id="review">
-      <h1>Форма отзыва</h1>
-      <div class="search">
-        <input
-          type="search"
-          class="registr"
-          id="search"
-          placeholder="Найти игру"
-        /><img src="Images/icon_search.svg" alt="icon_search" />
-      </div>
-      <input type="range" id="range" min="1" max="10" value="2" />
-      <div class="gradeword">
-        <span>Худшая игра</span><span>Лучшая игра</span>
-      </div>
-      <textarea
-        id="review_text"
-        placeholder="Введите свои впечатления об игре"
-      ></textarea
-      ><button class="btn" id="reviewbtn">Оставить отзыв</button>
+    <main id="registrform">
+      <h1>Вход в аккаунт</h1>
+      <input
+        type="text"
+        class="registr"
+        id="AccountName"
+        placeholder="Введите имя аккаунта"
+      /><input
+        type="password"
+        class="registr"
+        id="Password"
+        placeholder="Введите пароль"
+      />
+      <button type="submit" class="registr btn">Зарегистрироваться</button>
     </main>
     <footer>
       <a class="mainpage" href="main.html">Вернуться на главную</a>
