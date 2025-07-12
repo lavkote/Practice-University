@@ -1,3 +1,15 @@
+<?php
+
+session_start();
+
+require_once __DIR__ . '\src\helpr.php' ;
+
+$login = getName();
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -17,7 +29,7 @@
     <header class="header">
       <div class="mainavatar"></div>
       <div class="left">
-        <p class="name">AccountName</p>
+        <p class="name"> <?php echo $login ?> </p>
         <p id="reviews">отзывов: <span>1</span></p>
       </div>
       <div class="right">
