@@ -24,8 +24,8 @@ main {
     margin-left: 25px;
   }
 }
-.name{
-  margin-left:-10px;
+.name {
+  margin-left: -10px;
 }
 .mainavatar,
 .mainavatar:default {
@@ -91,39 +91,41 @@ h1 {
 .maingame {
   min-width: 175px;
   min-height: 200px;
-  background-color: rgb(0, 0, 0, 0.4);
+  filter: brightness(0.8);
   margin: 5px;
-  &:hover {
-    transform: scale(1.1);
-  }
 }
 .secgame {
   min-width: 150px;
   min-height: 175px;
-  background-color: rgb(0, 0, 0, 0.6);
+  filter: brightness(0.5);
   margin: 5px;
-  &:hover {
-    transform: scale(1.1);
-  }
 }
 .thirdgame {
   min-width: 100px;
   min-height: 115px;
-  background-color: rgb(0, 0, 0, 0.8);
+  filter: brightness(0.3);
   margin: 5px;
-  &:hover {
-    transform: scale(1.1);
-  }
 }
 .maingame,
 .secgame,
 .thirdgame {
   position: static;
   cursor: pointer;
+  background-color: rgb(170, 170, 170);
+  text-decoration: none;
+  align-content: end;
+  text-align: center;
+  padding: 5px;
+  color: white;
+  &:hover {
+    transform: scale(1.1);
+    filter: brightness(1);
+  }
 }
 .revieweek {
   display: flex;
-  justify-content: center;
+  margin: auto;
+  margin-bottom: 10px;
 }
 .review {
   margin: 0 10px;
@@ -135,6 +137,7 @@ h1 {
   position: relative;
   display: flex;
   flex-direction: column;
+  scroll-snap-align: center;
 }
 .grade {
   position: absolute;
@@ -297,8 +300,8 @@ input.registr {
 .background {
   margin-top: 10px;
   display: flex;
-  width: 1110px;
-  height: 300px;
+  width: 100%;
+  height: 50%;
   background-color: #0000007e;
   background-image: url();
   margin-bottom: 15px;
@@ -347,7 +350,7 @@ a.login {
 
 @media screen and (max-width: 600px) {
   body {
-    width: 600px;
+    width: 100%;
     margin: 0 5px;
     font-size: 14px;
   }
@@ -373,13 +376,14 @@ a.login {
     height: fit-content;
   }
   main {
-    padding-bottom: 100px;
+    padding-bottom: 40px;
   }
-  h1 {
+  h1,
+  #gamename {
     font-size: 30px;
   }
   .carousel {
-    width: 300px;
+    width: 250px;
     overflow-x: scroll;
     overflow-y: hidden;
     scroll-snap-type: x proximity;
@@ -390,17 +394,24 @@ a.login {
     scroll-snap-align: center;
   }
   .revieweek {
-    width: min-content;
+    width: 250px;
     overflow-x: scroll;
+    overflow-y: hidden;
     scroll-snap-type: x proximity;
   }
   .review {
-    width: fit-content;
-    scroll-snap-align: center;
+    flex-shrink: 0;
+    width: 250px;
   }
   input {
     align-content: center;
     margin-left: auto;
     margin-right: auto;
+  }
+  #review_text {
+    margin-bottom: 10px;
+  }
+  .info {
+    font-size: 14px;
   }
 }
