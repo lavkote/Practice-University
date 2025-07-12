@@ -46,7 +46,7 @@
       ><button class="btn" id="reviewbtn">Оставить отзыв</button>
     </main>
     <footer>
-      <a class="mainpage" href="index.html">Вернуться на главную</a>
+      <a class="mainpage" href="index.php">Вернуться на главную</a>
     </footer>
     <script src="code.php"></script>
   </body>
