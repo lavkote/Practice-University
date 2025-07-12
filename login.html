@@ -26,23 +26,25 @@
       </div>
     </header>
     <main id="registrform">
-      <h1>Вход в аккаунт</h1>
-      <input
-        type="text"
-        class="registr"
-        id="AccountName"
-        placeholder="Введите имя аккаунта"
-      /><input
-        type="password"
-        class="registr"
-        id="Password"
-        placeholder="Введите пароль"
-      />
-      <button type="submit" class="registr btn">Войти</button>
-      <p class="login">
-        Или вы можете
-        <a href="regist.html" class="login">Зарегистрироваться.</a>
-      </p>
+      <form action="src/login.php" method="post">
+        <h1>Вход в аккаунт</h1>
+        <input
+          type="text"
+          class="registr"
+          name="AccountName"
+          placeholder="Введите имя аккаунта"
+        /><input
+          type="password"
+          class="registr"
+          name="Password"
+          placeholder="Введите пароль"
+        />
+        <button type="submit" class="registr btn">Войти</button>
+        <p class="login">
+          Или вы можете
+          <a href="regist.html" class="login">Зарегистрироваться.</a>
+        </p>
+      </form>
     </main>
     <footer>
       <a class="mainpage" href="index.html">Вернуться на главную</a>

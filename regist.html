@@ -26,33 +26,35 @@
       </div>
     </header>
     <main id="registrform">
-      <h1>Форма регистрации</h1>
-      <input
-        type="text"
-        class="registr"
-        id="AccountName"
-        placeholder="Введите имя аккаунта"
-      /><input
-        type="email"
-        class="registr"
-        id="Email"
-        placeholder="Введите электронную почту"
-        autocomplete="off"
-      /><input
-        type="password"
-        class="registr"
-        id="Password"
-        placeholder="Введите пароль"
-      />
-      <button type="submit" class="registr btn">Зарегистрироваться</button>
-      <p class="login">
-        Или вы можете
-        <a href="login.html" class="login">войти в свой аккаунт.</a>
-      </p>
+      <form action="src/registr.php" method="post">
+        <h1>Форма регистрации</h1>
+        <input required
+          type="text"
+          class="registr"
+          name="AccountName"
+          placeholder="Введите имя аккаунта"
+        /><input required
+          type="email"
+          class="registr"
+          name="Email"
+          placeholder="Введите электронную почту"
+          autocomplete="off"
+        /><input required
+          type="password"
+          class="registr"
+          name="Password"
+          placeholder="Введите пароль"
+        />
+        <button type="submit" class="registr btn">Зарегистрироваться</button>
+        <p class="login">
+          Или вы можете
+          <a href="login.html" class="login">войти в свой аккаунт.</a>
+        </p>
+      </form>
     </main>
     <footer>
       <a class="mainpage" href="index.html">Вернуться на главную</a>
     </footer>
-    <script src="code.php"></script>
+    <script src="src/registr.php"></script>
   </body>
 </html>
