@@ -4,11 +4,27 @@ session_start();
 
 require_once __DIR__ . '\src\helpr.php' ;
 
+$auth = isAuth();
 $login = getName();
 
+//date('d-m-Y H:i:s', time());
+
+$connect = getDb();
+
+$sql = "SELECT * FROM `review`";
+
+$result = mysqli_query($connect, $sql);
+$result = mysqli_fetch_all($result);
+
+$reviewList = [];
+
+//заносим имя в переменную
+foreach($result as $item){
+$login = $item[1];
+}
+
+
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +46,7 @@ $login = getName();
       <div class="mainavatar"></div>
       <div class="left">
         <p class="name"> <?php echo $login ?> </p>
-        <p id="reviews">отзывов: <span>1</span></p>
+        <p id="reviews">отзывов: <span> <? print(getNumReview()); ?> </span></p>
       </div>
       <div class="right">
         <a class="btn" href="review.php" target="_blank">Написать отзыв</a

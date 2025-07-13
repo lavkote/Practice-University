@@ -4,7 +4,9 @@ session_start();
 
 require_once __DIR__ . '\src\helpr.php' ;
 
+
 $login = getName();
+
 
 ?>
 
@@ -36,24 +38,28 @@ $login = getName();
       </div>
     </header>
     <main id="review">
-      <h1>Форма отзыва</h1>
-      <div class="search">
-        <input
-          type="search"
-          class="registr"
-          id="search"
-          placeholder="Найти игру"
-        /><img src="Images/icon_search.svg" alt="icon_search" />
-      </div>
-      <input type="range" id="range" min="1" max="10" value="2" />
-      <div class="gradeword">
-        <span>Худшая игра</span><span>Лучшая игра</span>
-      </div>
-      <textarea
-        id="review_text"
-        placeholder="Введите свои впечатления об игре"
-      ></textarea
-      ><button class="btn" id="reviewbtn">Оставить отзыв</button>
+      <form action="src/reviewCreate.php" method="post">
+        <h1>Форма отзыва</h1>
+        <div class="search">
+          <input
+            type="search"
+            class="registr"
+            id="search"
+            name="search"
+            placeholder="Найти игру"
+          /><img src="Images/icon_search.svg" alt="icon_search" />
+        </div>
+        <input type="range" id="range" name="grade" min="1" max="10" value="2" />
+        <div class="gradeword">
+          <span>Худшая игра</span><span>Лучшая игра</span>
+        </div>
+        <textarea
+          id="review_text"
+          name="message"
+          placeholder="Введите свои впечатления об игре"
+        ></textarea
+        ><button class="btn" id="reviewbtn">Оставить отзыв</button>
+      </form>
     </main>
     <footer>
       <a class="mainpage" href="index.php">Вернуться на главную</a>

@@ -9,6 +9,22 @@ function getDb(): bool|mysqli {
     return mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME );
 }
 
+function isAuth(): bool{
+    $connect = getDb();
+
+    try {
+        if (isset($_SESSION["user"]["id"]) && $_SESSION["user"]["id"] !== '') {
+            return true;
+        } else {
+            return false;
+        }
+    } catch (mysqli_sql_exception $e) {
+
+    //игнорируем все ощипки т.к. код идеален
+
+    }
+}
+
 function getName(): string {
 
     $connect = getDb();
@@ -47,4 +63,34 @@ function getName(): string {
     }
 
     return($login);
+}
+
+function getNameFromID($id){
+
+    $connect = getDb();
+
+    try {
+        //Получаем строку из БД
+        $sql = "SELECT * FROM `users` WHERE `id` = ('$id') ";
+
+        $result = mysqli_query($connect, $sql);
+        $result = mysqli_fetch_all($result);
+
+        //заносим имя в переменную
+        foreach($result as $item){
+        $login = $item[1];
+        }
+    }catch (mysqli_sql_exception $e) {
+    //Присваеваем стандартное имя если произошла ошибка
+    return('Гость');
+    }
+    return($login);
+}
+
+function getNumReview(): int {
+    if(isAuth()){
+        return 1;
+    } else {
+        return 0;
+    }
 }
