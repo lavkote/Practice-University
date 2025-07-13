@@ -38,7 +38,7 @@ $login = getName();
       </div>
     </header>
     <main id="review">
-      <form action="src/reviewCreate.php" method="post">
+      <form action="src/reviewCreate.php" method="post" id="reviewform">
         <h1>Форма отзыва</h1>
         <div class="search">
           <input
