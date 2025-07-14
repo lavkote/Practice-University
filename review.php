@@ -36,7 +36,7 @@ require_once __DIR__ . '\src\helpr.php' ;
     <main id="review">
       <form action="src/reviewCreate.php" method="post" id="reviewform">
         <h1>Форма отзыва</h1> 
-        <select class="registr" id="search" name="search">
+        <select required class="registr" id="search" name="search">
                 <div class="dropdownlist">
                   <option class="list" value="<?echo(getGameNameFromID(1))?>">Выбрать игру</option>
                   <option class="list" value="1"><?echo(getGameNameFromID(1))?></option>
@@ -53,6 +53,7 @@ require_once __DIR__ . '\src\helpr.php' ;
           <span>Худшая игра</span><span>Лучшая игра</span>
         </div>
         <textarea
+          required
           id="review_text"
           name="message"
           placeholder="Введите свои впечатления об игре"

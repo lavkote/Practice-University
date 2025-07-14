@@ -15,7 +15,6 @@ $gameId = $_POST['search'];
 $creationDate = time();
 $grade = $_POST['grade'];
 $message = $_POST['message'];
-$gameId = 1;
 
 $connect = getDb();
 
