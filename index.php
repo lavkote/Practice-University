@@ -149,29 +149,27 @@ $gamesList[] = $item;
             </div>
           </article>
           <article class="review">
-            <span class="grade">10</span>
+            <span class="grade"><?print($reviewList[count($reviewList) - 3][4])?></span>
             <p class="reviewtext">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus
-              velit accusamus sed, eos magni minima!
+              <?print($reviewList[count($reviewList) - 3][5])?>
             </p>
             <div class="reviewaccount">
               <div class="reviewacc">
-                <p class="name">AccountName</p>
-                <p class="reviewgame">Game Name</p>
+                <p class="name"><?print(getNameFromID($reviewList[count($reviewList) - 3][1]))?></p>
+                <p class="reviewgame"><?print(getGameNameFromID($reviewList[count($reviewList) - 3][2]))?></p>
               </div>
               <div class="avatar" />
             </div>
           </article>
           <article class="review">
-            <span class="grade">10</span>
+            <span class="grade"><?print($reviewList[count($reviewList) - 4][4])?></span>
             <p class="reviewtext">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus
-              velit accusamus sed, eos magni minima!
+              <?print($reviewList[count($reviewList) - 4][5])?>
             </p>
             <div class="reviewaccount">
               <div class="reviewacc">
-                <p class="name">AccountName</p>
-                <p class="reviewgame">Game Name</p>
+                <p class="name"><?print(getNameFromID($reviewList[count($reviewList) - 4][1]))?></p>
+                <p class="reviewgame"><?print(getGameNameFromID($reviewList[count($reviewList) - 4][2]))?></p>
               </div>
               <div class="avatar" />
             </div>
