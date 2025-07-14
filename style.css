@@ -262,6 +262,7 @@ select {
   border-radius: 10px;
   padding: 5px;
   color: white;
+  outline: none;
 }
 .dropdownlist {
   top: 80%;
@@ -274,7 +275,6 @@ option {
   height: 20px;
   background-color: #eba630;
   color: white;
-  border: none;
   transition: background-color 2.5s;
   &:hover {
     background-color: #d15a23;

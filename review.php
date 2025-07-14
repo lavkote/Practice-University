@@ -38,12 +38,12 @@ require_once __DIR__ . '\src\helpr.php' ;
         <h1>Форма отзыва</h1> 
         <select class="registr" id="search" name="search">
                 <div class="dropdownlist">
-                  <option class="list">Выбрать игру</option>
-                  <option class="list"><?echo(getGameNameFromID(1))?></option>
-                  <option class="list"><?echo(getGameNameFromID(3))?></option>
-                  <option class="list"><?echo(getGameNameFromID(2))?></option>
-                  <option class="list"><?echo(getGameNameFromID(1))?></option>
-                  <option class="list"><?echo(getGameNameFromID(3))?></option>
+                  <option class="list" value="<?echo(getGameNameFromID(1))?>">Выбрать игру</option>
+                  <option class="list" value="<?echo(getGameNameFromID(1))?>"><?echo(getGameNameFromID(1))?></option>
+                  <option class="list" value="<?echo(getGameNameFromID(1))?>"><?echo(getGameNameFromID(3))?></option>
+                  <option class="list" value="<?echo(getGameNameFromID(1))?>"><?echo(getGameNameFromID(2))?></option>
+                  <option class="list" value="<?echo(getGameNameFromID(1))?>"><?echo(getGameNameFromID(1))?></option>
+                  <option class="list" value="<?echo(getGameNameFromID(1))?>"><?echo(getGameNameFromID(3))?></option>
                 </div>
               </div>
             </div>
