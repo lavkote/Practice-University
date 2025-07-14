@@ -35,24 +35,19 @@ require_once __DIR__ . '\src\helpr.php' ;
     </header>
     <main id="review">
       <form action="src/reviewCreate.php" method="post" id="reviewform">
-        <h1>Форма отзыва</h1>
-        <div class="dropdown">
-        <div class="search">
-            <input
-              type="search"
-              class="registr"
-              id="search"
-              name="search"
-              placeholder="Найти игру"
-            /><img src="Images/icon_search.svg" alt="icon_search" /><div class="dropdownlist">
-              <button type="submit" class="list"><?echo(getGameNameFromID(1))?></button>
-              <button type="submit" class="list"><?echo(getGameNameFromID(3))?></button>
-              <button type="submit" class="list"><?echo(getGameNameFromID(2))?></button>
-              <button type="submit" class="list"><?echo(getGameNameFromID(1))?></button>
-              <button type="submit" class="list"><?echo(getGameNameFromID(3))?></button>
+        <h1>Форма отзыва</h1> 
+        <select class="registr" id="search" name="search">
+                <div class="dropdownlist">
+                  <option class="list">Выбрать игру</option>
+                  <option class="list"><?echo(getGameNameFromID(1))?></option>
+                  <option class="list"><?echo(getGameNameFromID(3))?></option>
+                  <option class="list"><?echo(getGameNameFromID(2))?></option>
+                  <option class="list"><?echo(getGameNameFromID(1))?></option>
+                  <option class="list"><?echo(getGameNameFromID(3))?></option>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          </select>
         <input type="range" id="range" name="grade" min="1" max="10" value="2" />
         <div class="gradeword">
           <span>Худшая игра</span><span>Лучшая игра</span>

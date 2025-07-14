@@ -240,7 +240,6 @@ input.registr {
 }
 #search {
   margin-top: 30px;
-  height: 28px;
   width: fit-content;
   border: 3px solid #eba630;
   background: linear-gradient(#d15a23, #eba630);
@@ -256,24 +255,23 @@ input.registr {
     height: 28px;
   }
 }
-.dropdown {
+select {
+  position: relative;
   display: inline-block;
+  top: 80%;
+  border-radius: 10px;
+  padding: 5px;
+  color: white;
 }
 .dropdownlist {
   top: 80%;
-  position: absolute;
-  display: none;
   background-color: #eba630;
   border-radius: 10px;
-  width: 200px;
   padding: 5px;
 }
-.list {
+option {
   padding: 5px;
   height: 20px;
-  width: 100%;
-  display: block;
-  text-align: left;
   background-color: #eba630;
   color: white;
   border: none;
@@ -283,10 +281,7 @@ input.registr {
     transition: background-color 0.5s;
   }
 }
-.search:focus-within .dropdownlist {
-  position: absolute;
-  display: block;
-}
+
 #range {
   appearance: none;
   background: linear-gradient(
