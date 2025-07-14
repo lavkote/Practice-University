@@ -79,6 +79,13 @@ $finalGrade = $sumOfGrades / (count($reviewList));
       </div>
     </header>
     <main>
+      <style>
+        .background{
+          background-image: url("/Images/Atomic_Heart.webp");
+          background-size: cover;
+          background-position: center;
+        }
+      </style>
       <article class="background">
         <span class="generalgrade"><?print($finalGrade)?></span>
         <div class="info">

@@ -140,7 +140,7 @@ $gamesList[] = $item;
       <section>
         <h1 id="revieweek">Последние отзывы</h1>
         <article class="revieweek">
-          <article class="review">
+          <article class="review" id="rev1">
             <span class="grade"><?print($reviewList[count($reviewList) - 1][4])?></span>
             <p class="reviewtext">
               <?print($reviewList[count($reviewList) - 1][5])?>
@@ -153,7 +153,7 @@ $gamesList[] = $item;
               <div class="avatar" />
             </div>
           </article>
-          <article class="review">
+          <article class="review" id="rev2">
             <span class="grade"><?print($reviewList[count($reviewList) - 2][4])?></span>
             <p class="reviewtext">
               <?print($reviewList[count($reviewList) - 2][5])?>
@@ -166,7 +166,7 @@ $gamesList[] = $item;
               <div class="avatar" />
             </div>
           </article>
-          <article class="review">
+          <article class="review" id="rev3">
             <span class="grade"><?print($reviewList[count($reviewList) - 3][4])?></span>
             <p class="reviewtext">
               <?print($reviewList[count($reviewList) - 3][5])?>
@@ -179,7 +179,7 @@ $gamesList[] = $item;
               <div class="avatar" />
             </div>
           </article>
-          <article class="review">
+          <article class="review" id="rev4">
             <span class="grade"><?print($reviewList[count($reviewList) - 4][4])?></span>
             <p class="reviewtext">
               <?print($reviewList[count($reviewList) - 4][5])?>
