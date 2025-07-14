@@ -118,12 +118,14 @@ h1 {
   color: white;
   border-width: 0px;
   transition: transform 0.5s;
+  background-size: cover;
   &:hover {
     transform: scale(1.1);
     transition: transform 1s;
     filter: brightness(1);
   }
 }
+
 .revieweek {
   display: flex;
   margin: auto;

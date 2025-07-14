@@ -71,7 +71,7 @@ $gamesList[] = $item;
         >
 
         <? if(isAuth()):?>
-        <a class="btn" href="logout.php">Выйти</a>
+        <a class="btn" href="src/logout.php">Выйти</a>
         <? else: ?>
         <a class="btn" href="regist.html">Регистрация</a>
         <? endif ?>
@@ -82,11 +82,28 @@ $gamesList[] = $item;
         <h1 id="carousel">Игры недели</h1>
         <article class="carousel">
           <form action="gamedescription.php" method="get" class="gamedescform">
+            <style>
+              #game1 {
+                background-image: url("/Images/Atomic_Heart.webp");
+              }
+              #game2 {
+                background-image: url("/Images/Atomic_Heart.webp");
+              }
+              #game3 {
+                background-image: url("/Images/Atomic_Heart.webp");
+              }
+              #game4 {
+                background-image: url("/Images/Atomic_Heart.webp");
+              }
+              #game5 {
+                background-image: url("/Images/Atomic_Heart.webp");
+              }
+            </style>
             <input type="hidden" name="gameID" value="2">
             <input type="submit" value="<?print(getGameNameFromID(2))?>"
             target="_blank"
             id="game1"
-            class="thirdgame"></input>
+            class="thirdgame">
           </form>
           <form action="gamedescription.php" method="get" class="gamedescform">
             <input type="hidden" name="gameID" value="3">
@@ -95,7 +112,6 @@ $gamesList[] = $item;
               target="_blank"
               id="game2"
               class="secgame">
-            </input>
           </form>
           <form action="gamedescription.php" method="get">
             <input type="hidden" name="gameID" value="1">
@@ -103,7 +119,6 @@ $gamesList[] = $item;
               target="_blank"
               id="game3"
               class="maingame">
-            </input>
           </form>
           <form action="gamedescription.php" method="get" class="gamedescform">
             <input type="hidden" name="gameID" value="2">
@@ -112,7 +127,6 @@ $gamesList[] = $item;
               target="_blank"
               id="game4"
               class="secgame">
-            </input>
           </form>
           <form action="gamedescription.php" method="get" class="gamedescform">
             <input type="hidden" name="gameID" value="2">
@@ -120,7 +134,6 @@ $gamesList[] = $item;
               target="_blank"
               id="game5"
               class="thirdgame">
-            </input>
           </form>
         </article>
       </section>
