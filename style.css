@@ -352,7 +352,8 @@ option {
   position: absolute;
   top: auto;
   right: 0;
-  width: 30px;
+  width: fit-content;
+  padding: 0 5px;
   height: 30px;
   font-size: 25px;
   align-content: end;

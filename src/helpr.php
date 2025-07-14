@@ -141,7 +141,7 @@ function getGameNameFromID($id) : string{
 }
 
 //Возвращает путь к связанному с игрой файлу по ID
-function getNudesFromID($id) : string{
+function getPicsFromID($id) : string{
 
     
     $connect = getDb();

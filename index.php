@@ -84,19 +84,19 @@ $gamesList[] = $item;
           <form action="gamedescription.php" method="get" class="gamedescform">
             <style>
               #game1 {
-                background-image: url("/Images/Atomic_Heart.webp");
+                background-image: url(<?print(getPicsFromID(2))?>);
               }
               #game2 {
-                background-image: url("/Images/Atomic_Heart.webp");
+                background-image: url(<?print(getPicsFromID(3))?>);
               }
               #game3 {
-                background-image: url("/Images/Atomic_Heart.webp");
+                background-image: url(<?print(getPicsFromID(1))?>);
               }
               #game4 {
-                background-image: url("/Images/Atomic_Heart.webp");
+                background-image: url(<?print(getPicsFromID(4))?>);
               }
               #game5 {
-                background-image: url("/Images/Atomic_Heart.webp");
+                background-image: url(<?print(getPicsFromID(5))?>);
               }
             </style>
             <input type="hidden" name="gameID" value="2">
@@ -121,16 +121,16 @@ $gamesList[] = $item;
               class="maingame">
           </form>
           <form action="gamedescription.php" method="get" class="gamedescform">
-            <input type="hidden" name="gameID" value="2">
-            <input type="submit" value="<?print(getGameNameFromID(2))?>"
+            <input type="hidden" name="gameID" value="4">
+            <input type="submit" value="<?print(getGameNameFromID(4))?>"
               href="gamedescription.php"
               target="_blank"
               id="game4"
               class="secgame">
           </form>
           <form action="gamedescription.php" method="get" class="gamedescform">
-            <input type="hidden" name="gameID" value="2">
-            <input type="submit" value="<?print(getGameNameFromID(2))?>"
+            <input type="hidden" name="gameID" value="5">
+            <input type="submit" value="<?print(getGameNameFromID(5))?>"
               target="_blank"
               id="game5"
               class="thirdgame">
