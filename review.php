@@ -39,11 +39,11 @@ require_once __DIR__ . '\src\helpr.php' ;
         <select class="registr" id="search" name="search">
                 <div class="dropdownlist">
                   <option class="list" value="<?echo(getGameNameFromID(1))?>">Выбрать игру</option>
-                  <option class="list" value="<?echo(getGameNameFromID(1))?>"><?echo(getGameNameFromID(1))?></option>
-                  <option class="list" value="<?echo(getGameNameFromID(1))?>"><?echo(getGameNameFromID(3))?></option>
-                  <option class="list" value="<?echo(getGameNameFromID(1))?>"><?echo(getGameNameFromID(2))?></option>
-                  <option class="list" value="<?echo(getGameNameFromID(1))?>"><?echo(getGameNameFromID(1))?></option>
-                  <option class="list" value="<?echo(getGameNameFromID(1))?>"><?echo(getGameNameFromID(3))?></option>
+                  <option class="list" value="1"><?echo(getGameNameFromID(1))?></option>
+                  <option class="list" value="2"><?echo(getGameNameFromID(2))?></option>
+                  <option class="list" value="3"><?echo(getGameNameFromID(3))?></option>
+                  <option class="list" value="4"><?echo(getGameNameFromID(4))?></option>
+                  <option class="list" value="5"><?echo(getGameNameFromID(5))?></option>
                 </div>
               </div>
             </div>

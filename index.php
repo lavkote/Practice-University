@@ -69,6 +69,7 @@ $gamesList[] = $item;
       <div class="right">
         <a class="btn" href="review.php" target="_blank">Написать отзыв</a
         >
+
         <? if(isAuth()):?>
         <a class="btn" href="logout.php">Выйти</a>
         <? else: ?>
