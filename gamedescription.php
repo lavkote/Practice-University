@@ -4,15 +4,13 @@ session_start();
 
 require_once __DIR__ . '\src\helpr.php' ;
 
+//проверка на получение Id игры
+
 if(!isset($_GET['gameID'])){
   header("Location: /index.php");
 }
 
-try {
 $gameID = $_GET['gameID'];
-} catch (mysqli_sql_exception $e) {
-header("Location: /index.php");
-}
 
 //print_r($gameID);
 
@@ -43,7 +41,13 @@ foreach($result as $item){
 $reviewList[] = $item;
 }
 
+//Подсчёт оценки
+$sumOfGrades = 0;
+for($i = 0; $i < count($reviewList); $i++){
+$sumOfGrades += $reviewList[$i][4];
+}
 
+$finalGrade = $sumOfGrades / (count($reviewList));
 
 ?>
 
@@ -76,7 +80,7 @@ $reviewList[] = $item;
     </header>
     <main>
       <article class="background">
-        <span class="generalgrade"><?print($game[2])?></span>
+        <span class="generalgrade"><?print($finalGrade)?></span>
         <div class="info">
           <h1 id="gamename"><?print($game[1])?></h1>
           <p class="text">
@@ -110,15 +114,14 @@ $reviewList[] = $item;
             </div>
           </article>
           <article class="review">
-            <span class="grade">10</span>
+            <span class="grade"><?print($reviewList[count($reviewList) - 2][4])?></span>
             <p class="reviewtext">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus
-              velit accusamus sed, eos magni minima!
+              <?print($reviewList[count($reviewList) - 2][5])?>
             </p>
             <div class="reviewaccount">
               <div class="reviewacc">
-                <p class="reviewname">AccountName</p>
-                <p class="reviewgame">Game Name</p>
+                <p class="reviewname"><?print(getNameFromID($reviewList[count($reviewList) - 2][1]))?></p>
+                <p class="reviewgame"><?print(getGameNameFromID($reviewList[count($reviewList) - 2][2]))?></p>
               </div>
               <div class="avatar" />
             </div>
