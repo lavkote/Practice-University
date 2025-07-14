@@ -1,15 +1,16 @@
 <?php
+//ОСТОРОЖНО, КОСТЫЛИ!!!
 
 session_start();
 
 require_once __DIR__ . '\src\helpr.php' ;
 
 $auth = isAuth();
-$login = getName();
-
-//date('d-m-Y H:i:s', time());
 
 $connect = getDb();
+
+
+//подгружаем обзоры
 
 $sql = "SELECT * FROM `review`";
 
@@ -18,10 +19,27 @@ $result = mysqli_fetch_all($result);
 
 $reviewList = [];
 
-//заносим имя в переменную
+
 foreach($result as $item){
-$login = $item[1];
+$reviewList[] = $item;
 }
+
+//подгружаем игры
+
+$sql = "SELECT * FROM `games`";
+
+$result = mysqli_query($connect, $sql);
+$result = mysqli_fetch_all($result);
+
+$gamesList = [];
+
+foreach($result as $item){
+$gamesList[] = $item;
+}
+
+
+//print_r($reviewList);
+//print_r(count($reviewList));
 
 
 ?>
@@ -45,7 +63,7 @@ $login = $item[1];
     <header class="header">
       <div class="mainavatar"></div>
       <div class="left">
-        <p class="name"> <?php echo $login ?> </p>
+        <p class="name"> <?php print(getName()) ?> </p>
         <p id="reviews">отзывов: <span> <? print(getNumReview()); ?> </span></p>
       </div>
       <div class="right">
@@ -57,13 +75,16 @@ $login = $item[1];
       <section>
         <h1 id="carousel">Лучшие игры недели</h1>
         <article class="carousel">
-          <a
-            href="gamedescription.php"
-            target="_blank"
-            id="game1"
-            class="thirdgame"
-            >Название игры</a
-          >
+          <form action="gamedescription.php" method="get">
+            <input type="hidden" name="gameID" value="2">
+            <input type="submit" value="Run me now!">
+            <a
+              target="_blank"
+              id="game1"
+              class="thirdgame"
+              ><?print(getGameNameFromID(2))?></a
+            >
+          </form>
           <a
             href="gamedescription.php"
             target="_blank"
@@ -71,13 +92,17 @@ $login = $item[1];
             class="secgame"
             >Название игры</a
           >
-          <a
-            href="gamedescription.php"
-            target="_blank"
-            id="game3"
-            class="maingame"
-            >Название игры</a
-          >
+          <form action="gamedescription.php" method="get">
+            <input type="hidden" name="gameID" value="1">
+            <input type="submit" value="Run me now!">
+            <a
+              href="gamedescription.php"
+              target="_blank"
+              id="game3"
+              class="maingame"
+              ><?print(getGameNameFromID(1))?></a
+            >
+          <form>
           <a
             href="gamedescription.php"
             target="_blank"
@@ -98,29 +123,27 @@ $login = $item[1];
         <h1 id="revieweek">Лучшие отзывы за неделю</h1>
         <article class="revieweek">
           <article class="review">
-            <span class="grade">10</span>
+            <span class="grade"><?print($reviewList[count($reviewList) - 1][4])?></span>
             <p class="reviewtext">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus
-              velit accusamus sed, eos magni minima!
+              <?print($reviewList[count($reviewList) - 1][5])?>
             </p>
             <div class="reviewaccount">
               <div class="reviewacc">
-                <p class="name">AccountName</p>
-                <p class="reviewgame">Game Name</p>
+                <p class="name"><?print(getNameFromID($reviewList[count($reviewList) - 1][1]))?></p>
+                <p class="reviewgame"><?print(getGameNameFromID($reviewList[count($reviewList) - 1][2]))?></p>
               </div>
               <div class="avatar" />
             </div>
           </article>
           <article class="review">
-            <span class="grade">10</span>
+            <span class="grade"><?print($reviewList[count($reviewList) - 2][4])?></span>
             <p class="reviewtext">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus
-              velit accusamus sed, eos magni minima!
+              <?print($reviewList[count($reviewList) - 2][5])?>
             </p>
             <div class="reviewaccount">
               <div class="reviewacc">
-                <p class="name">AccountName</p>
-                <p class="reviewgame">Game Name</p>
+                <p class="name"><?print(getNameFromID($reviewList[count($reviewList) - 2][1]))?></p>
+                <p class="reviewgame"><?print(getGameNameFromID($reviewList[count($reviewList) - 2][2]))?></p>
               </div>
               <div class="avatar" />
             </div>

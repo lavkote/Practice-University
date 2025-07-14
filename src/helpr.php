@@ -9,6 +9,7 @@ function getDb(): bool|mysqli {
     return mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME );
 }
 
+//Проверка на авторизацию
 function isAuth(): bool{
     $connect = getDb();
 
@@ -25,6 +26,7 @@ function isAuth(): bool{
     }
 }
 
+//Получение имени (с заменой на 'Гость' при отсутствии авторизации)
 function getName(): string {
 
     $connect = getDb();
@@ -65,7 +67,7 @@ function getName(): string {
     return($login);
 }
 
-function getNameFromID($id){
+function getNameFromID($id) : string{
 
     $connect = getDb();
 
@@ -87,10 +89,80 @@ function getNameFromID($id){
     return($login);
 }
 
+//Возвращает кол-во написанных отзывов
 function getNumReview(): int {
     if(isAuth()){
-        return 1;
+        $idUser = $_SESSION["user"]["id"];
+
+        $connect = getDb();
+
+        $sql = "SELECT * FROM `review` WHERE `userId` = ('$idUser') ";
+
+        $result = mysqli_query($connect, $sql);
+        $result = mysqli_fetch_all($result);
+
+        $reviewList = [];
+
+        //заносим имя в переменную
+        foreach($result as $item){
+        $reviewList[] = $item;
+        }
+
+        return count($reviewList);
+
     } else {
         return 0;
     }
 }
+
+//Возвращает название игры по её ID
+function getGameNameFromID($id) : string{
+
+    
+    $connect = getDb();
+
+    try {
+        //Получаем строку из БД
+        $sql = "SELECT * FROM `games` WHERE `id` = ('$id') ";
+
+        $result = mysqli_query($connect, $sql);
+        $result = mysqli_fetch_all($result);
+
+        //заносим имя в переменную
+        foreach($result as $item){
+        $game = $item[1];
+        }
+    }catch (mysqli_sql_exception $e) {
+    //Присваеваем стандартное имя если произошла ошибка
+    return('неизвестно');
+    }
+    return($game);
+
+}
+
+//Возвращает путь к связанному с игрой файлу по ID
+function getNudesFromID($id) : string{
+
+    
+    $connect = getDb();
+
+    try {
+        //Получаем строку из БД
+        $sql = "SELECT * FROM `games` WHERE `id` = ('$id') ";
+
+        $result = mysqli_query($connect, $sql);
+        $result = mysqli_fetch_all($result);
+
+        //заносим путь в переменную
+        foreach($result as $item){
+        $game = $item[6];
+        }
+    }catch (mysqli_sql_exception $e) {
+    //Присваеваем стандартный путь изображения если произошла ошибка
+    return('/Images/avatar.svg');
+    }
+    return($game);
+
+}
+
+

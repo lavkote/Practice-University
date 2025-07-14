@@ -19,7 +19,7 @@ If ($connect -> query($sql) === TRUE) {
    // echo 'регистрация успешна';
    header("Location: /login.html");
 } else {
-   // echo 'пшёл нах';
+   // echo 'Ошибка';
    header("Location: /regist.html");
 }
 

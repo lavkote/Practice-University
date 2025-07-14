@@ -4,10 +4,6 @@ session_start();
 
 require_once __DIR__ . '\src\helpr.php' ;
 
-
-$login = getName();
-
-
 ?>
 
 <!DOCTYPE html>
@@ -29,8 +25,8 @@ $login = getName();
     <header class="header">
       <div class="mainavatar"></div>
       <div class="left">
-        <p class="name"><?php echo $login ?></p>
-        <p id="reviews">отзывов: <span>1</span></p>
+        <p class="name"><? print(getName()) ?></p>
+        <p id="reviews">отзывов: <span><? print(getNumReview()) ?></span></p>
       </div>
       <div class="right">
         <a class="btn" href="#">Написать отзыв</a

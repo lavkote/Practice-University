@@ -4,7 +4,46 @@ session_start();
 
 require_once __DIR__ . '\src\helpr.php' ;
 
-$login = getName();
+if(!isset($_GET['gameID'])){
+  header("Location: /index.php");
+}
+
+try {
+$gameID = $_GET['gameID'];
+} catch (mysqli_sql_exception $e) {
+header("Location: /index.php");
+}
+
+//print_r($gameID);
+
+$connect = getDb();
+
+// подгружаем игру
+$sql = "SELECT * FROM `games` WHERE `id` = ('$gameID') ";
+
+$result = mysqli_query($connect, $sql);
+$result = mysqli_fetch_all($result);
+
+
+foreach($result as $item){
+$game = $item;
+}
+
+
+// подгружаем обзоры на данную игру
+
+$sql = "SELECT * FROM `review` WHERE `gameId` = ('$gameID')";
+
+$result = mysqli_query($connect, $sql);
+$result = mysqli_fetch_all($result);
+
+$reviewList = [];
+
+foreach($result as $item){
+$reviewList[] = $item;
+}
+
+
 
 ?>
 
@@ -13,7 +52,7 @@ $login = getName();
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Название игры</title>
+    <title><?print($game[1])?></title>
     <link rel="shortcut icon" href="/Images/Vector.png" type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -27,8 +66,8 @@ $login = getName();
     <header class="header">
       <div class="mainavatar"></div>
       <div class="left">
-        <p class="name"><?php echo $login ?></p>
-        <p id="reviews">отзывов: <span>1</span></p>
+        <p class="name"><?php print(getName())?></p>
+        <p id="reviews">отзывов: <span><? print(getNumReview()); ?></span></p>
       </div>
       <div class="right">
         <a class="btn" href="review.php" target="_blank">Написать отзыв</a
@@ -37,23 +76,20 @@ $login = getName();
     </header>
     <main>
       <article class="background">
-        <span class="generalgrade">10</span>
+        <span class="generalgrade"><?print($game[2])?></span>
         <div class="info">
-          <h1 id="gamename">Название игры</h1>
+          <h1 id="gamename"><?print($game[1])?></h1>
           <p class="text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Praesentium, quaerat. Lorem ipsum dolor sit amet, consectetur
-            adipisicing elit. Est dolore exercitationem obcaecati aspernatur
-            voluptas illum excepturi laborum molestiae deserunt praesentium?
+            <?print($game[5])?>
           </p>
           <br />
           <div class="spanhead">
-            <span>Дата выхода:</span>
-            <p id="gamedate">08.07.25</p>
+            <span>Дата выхода: </span>
+            <p id="gamedate"><?print($game[4])?></p>
           </div>
           <div class="spanhead">
             <span>Разработчик:</span>
-            <p id="gameauthor">тим чери</p>
+            <p id="gameauthor"><?print($game[3])?></p>
           </div>
         </div>
       </article>
@@ -61,17 +97,14 @@ $login = getName();
         <h1 id="revieweek">Лучшие отзывы по этой игре</h1>
         <article class="revieweek">
           <article class="review">
-            <span class="grade">10</span>
+            <span class="grade"><?print($reviewList[count($reviewList) - 1][4])?></span>
             <p class="reviewtext">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus
-              velit accusamus sed, eos magni minima! Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Ipsam, debitis. Lorem ipsum dolor
-              sit amet consectetur adipisicing elit. Assumenda, odio!
+              <?print($reviewList[count($reviewList) - 1][5])?>
             </p>
             <div class="reviewaccount">
               <div class="reviewacc">
-                <p class="reviewname">AccountName</p>
-                <p class="reviewgame">Game Name</p>
+                <p class="reviewname"><?print(getNameFromID($reviewList[count($reviewList) - 1][1]))?></p>
+                <p class="reviewgame"><?print(getGameNameFromID($reviewList[count($reviewList) - 1][2]))?></p>
               </div>
               <div class="avatar" />
             </div>
