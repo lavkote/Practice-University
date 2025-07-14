@@ -73,54 +73,53 @@ $gamesList[] = $item;
     </header>
     <main>
       <section>
-        <h1 id="carousel">Лучшие игры недели</h1>
+        <h1 id="carousel">Игры недели</h1>
         <article class="carousel">
-          <form action="gamedescription.php" method="get">
+          <form action="gamedescription.php" method="get" class="gamedescform">
             <input type="hidden" name="gameID" value="2">
-            <input type="submit" value="Run me now!">
-            <a
-              target="_blank"
-              id="game1"
-              class="thirdgame"
-              ><?print(getGameNameFromID(2))?></a
-            >
-          </form>
-          <a
-            href="gamedescription.php"
+            <input type="submit" value="<?print(getGameNameFromID(2))?>"
             target="_blank"
-            id="game2"
-            class="secgame"
-            >Название игры</a
-          >
-          <form action="gamedescription.php" method="get">
-            <input type="hidden" name="gameID" value="1">
-            <input type="submit" value="Run me now!">
-            <a
+            id="game1"
+            class="thirdgame"></input>
+          </form>
+          <form action="gamedescription.php" method="get" class="gamedescform">
+            <input type="hidden" name="gameID" value="3">
+            <input type="submit" value="<?print(getGameNameFromID(3))?>"
               href="gamedescription.php"
               target="_blank"
+              id="game2"
+              class="secgame">
+            </input>
+          </form>
+          <form action="gamedescription.php" method="get">
+            <input type="hidden" name="gameID" value="1">
+            <input type="submit" value="<?print(getGameNameFromID(1))?>"
+              target="_blank"
               id="game3"
-              class="maingame"
-              ><?print(getGameNameFromID(1))?></a
-            >
-          <form>
-          <a
-            href="gamedescription.php"
-            target="_blank"
-            id="game4"
-            class="secgame"
-            >Название игры</a
-          >
-          <a
-            href="gamedescription.php"
-            target="_blank"
-            id="game5"
-            class="thirdgame"
-            >Название игры</a
-          >
+              class="maingame">
+            </input>
+          </form>
+          <form action="gamedescription.php" method="get" class="gamedescform">
+            <input type="hidden" name="gameID" value="2">
+            <input type="submit" value="<?print(getGameNameFromID(2))?>"
+              href="gamedescription.php"
+              target="_blank"
+              id="game4"
+              class="secgame">
+            </input>
+          </form>
+          <form action="gamedescription.php" method="get" class="gamedescform">
+            <input type="hidden" name="gameID" value="2">
+            <input type="submit" value="<?print(getGameNameFromID(2))?>"
+              target="_blank"
+              id="game5"
+              class="thirdgame">
+            </input>
+          </form>
         </article>
       </section>
       <section>
-        <h1 id="revieweek">Лучшие отзывы за неделю</h1>
+        <h1 id="revieweek">Последние отзывы</h1>
         <article class="revieweek">
           <article class="review">
             <span class="grade"><?print($reviewList[count($reviewList) - 1][4])?></span>
